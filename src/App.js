@@ -9,6 +9,7 @@ import Card from "./components/Card.jsx";
 import About from "./pages/about.jsx";
 import Contact from "./pages/contact.jsx";
 import Projects from "./pages/projects.jsx";
+import Resume from "./pages/resume.jsx";
 
 
 
@@ -182,7 +183,31 @@ function App() {
   </motion.div>
 )}
 
-          
+        {activeCard === "resume" && (
+  <motion.div
+    key="skills-card"
+    initial={{ y: "100vh", opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ y: "100vh", opacity: 0 }}
+    transition={{ duration: 0.6, ease: "easeInOut" }}
+    style={{
+    position: "fixed",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        left: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 10,
+    }}
+  >
+    <Card title="My Skills" onClose={() => setActiveCard(null)}>
+      <Resume />
+    </Card>
+  </motion.div>
+)}
+  
 
     </div>
   );
